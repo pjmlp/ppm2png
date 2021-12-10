@@ -28,8 +28,7 @@ module;
 
 export module image;
 
-using namespace Gdiplus;
-#pragma comment (lib,"Gdiplus.lib")
+import gdiplusinitialize;
 
 using namespace Gdiplus;
 
@@ -51,15 +50,9 @@ bool SaveImage(const std::wstring& filename, ImageEncondings enconding, int imag
 /// <param name="imageData">Image data buffer.</param>
 export void CreateImage(const std::wstring& filename, ImageEncondings enconding, int imageWidth, int imageHeight, BYTE* imageData)
 {
-    GdiplusStartupInput gdiplusStartupInput;
-    ULONG_PTR           gdiplusToken;
-
-    // Initialize GDI+.
-    GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
+   gdiplusinitialize GdiPlus;
 
     SaveImage(filename, enconding, imageWidth, imageHeight, imageData);
-
-    GdiplusShutdown(gdiplusToken);
 }
 
 /// <summary>

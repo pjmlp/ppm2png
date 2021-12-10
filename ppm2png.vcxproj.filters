@@ -21,6 +21,9 @@
     <ClCompile Include="main.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gdiplusinitialize.ixx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Readme.md" />
