@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-module;
-
 #include <windows.h>
 
 #include <iostream>
@@ -26,11 +24,9 @@ module;
 #include <string>
 #include <span>
 
-export module main;
-
 import image;
 
-export int main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
     using namespace std::string_literals;
 
