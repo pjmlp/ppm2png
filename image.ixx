@@ -112,9 +112,13 @@ std::optional<CLSID> GetEncoderClsid(std::wstring_view format)
     if (size == 0)
         return {};
 
-    auto imageCodecInfo = std::make_unique<ImageCodecInfo[]>(size);
-    if (imageCodecInfo == nullptr)
+    std::unique_ptr<ImageCodecInfo[]> imageCodecInfo;
+    try {
+        imageCodecInfo = std::make_unique<ImageCodecInfo[]>(size);
+    }
+    catch (std::bad_alloc err) {
         return {};  // Failure
+    }
 
     GetImageEncoders(num, size, imageCodecInfo.get());
 
