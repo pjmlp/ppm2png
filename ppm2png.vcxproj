@@ -152,6 +152,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gdiplusinitialize.ixx" />
     <ClCompile Include="image.ixx" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
