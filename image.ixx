@@ -17,6 +17,9 @@
  */
 module;
 
+// ensures safety checks are turned on even on release mode
+#define _ITERATOR_DEBUG_LEVEL 1
+
 #include <windows.h>
 #include <gdiplus.h>
 #include <iostream>

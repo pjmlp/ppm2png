@@ -15,6 +15,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+ // ensures safety checks are turned on even on release mode
+#define _ITERATOR_DEBUG_LEVEL 1
+
 #include <windows.h>
 
 #include <iostream>
