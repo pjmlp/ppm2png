@@ -53,9 +53,9 @@ bool SaveImage(const std::wstring& filename, ImageEncondings enconding, int imag
 /// <param name="imageData">Image data buffer.</param>
 export void CreateImage(const std::wstring& filename, ImageEncondings enconding, int imageWidth, int imageHeight, BYTE* imageData)
 {
-   gdiplusinitialize GdiPlus;
+   gdiplusinitialize gdiPlus;
 
-    SaveImage(filename, enconding, imageWidth, imageHeight, imageData);
+   SaveImage(filename, enconding, imageWidth, imageHeight, imageData);
 }
 
 /// <summary>
@@ -68,18 +68,12 @@ export void CreateImage(const std::wstring& filename, ImageEncondings enconding,
 /// <param name="imageData">Image data buffer.</param>
 export void CreateImage(const std::string& filename, ImageEncondings enconding, int imageWidth, int imageHeight, BYTE* imageData)
 {
-    GdiplusStartupInput gdiplusStartupInput;
-    ULONG_PTR           gdiplusToken;
-
-    // Initialize GDI+.
-    GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
+    gdiplusinitialize gdiPlus;
 
     // Windows APIs expect to deal with wide strings anyway
     std::wstring wfilename(filename.begin(), filename.end());
 
     SaveImage(wfilename, enconding, imageWidth, imageHeight, imageData);
-
-    GdiplusShutdown(gdiplusToken);
 }
 
 
