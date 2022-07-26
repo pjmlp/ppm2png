@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
     constexpr auto BPP = 3;
     std::size_t imageSize = width * height * BPP;
 
-    auto imageData = std::make_unique<BYTE[]>(imageSize);
+    std::vector<BYTE> imageData(imageSize);
 
     std::size_t row = 0;
     std::string r, g, b;
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
         imageData[row + 2] = static_cast<BYTE> (std::stoi(r));
     }
 
-    CreateImage(destFilename, ImageEncondings::PNG, width, height, imageData.get());
+    CreateImage(destFilename, ImageEncondings::PNG, width, height, imageData.data());
 
     std::cout << "Processed " << sourceFilename << " into " << destFilename << std::endl;
     return 0;
