@@ -2,19 +2,18 @@
 
 Basically this is a converter for the PPM file format as used on the [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html#outputanimage/theppmimageformat) tutorial.
 
-It was coded in one afternoon, while I was playing around with modern C++ features.
+It is a port for a small utility that I originally coded in C++20.
 
 # Building
 
-It was developed with Visual Studio 2022 and makes use of modules, this setup works perfectly alright with MSBuild.
+It was developed with Visual Studio 2022 and makes use of .NET 6 alongside C# 10.
 
-Maybe when CMake starts supporting modules I can eventually add a build configuration for it.
+Building on Linux and macOS versions should work out of the box with `dotnet build`.
 
+# Trying it out
 
-# Remarks
+If you don't happen to have PPM file with the P3 format lying around, there is one on the samples folder.
 
-Maybe it has bugs, or could be made better in so many ways (including how the PPM gets parsed).
+# Where is the C++ version now
 
-Some effort was spent running it through the static analysis tooling form VS 2022, and no major issues were found, however they are known not to work 100% with modules still.
-
-In what concerns porting my hobby renderings output from PPM into PNG, when I am on a Windows development environment, it is more than good enough.
+If you still care about the original C++ version, it now lives on its own branch, named [cpp-version](https://github.com/pjmlp/ppm2png/tree/cpp-version).
