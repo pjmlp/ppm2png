@@ -1,0 +1,13 @@
+{
+	"authors": [
+		"Paulo Pinto"
+	],
+	"dependencies": {
+		"imageformats": "~>7.0.2"
+	},
+	"description": "A small CLI utility program program to convert from PPM to PNG files",
+	"homepage": "https://github.com/pjmlp/ppm2png/d",
+	"license": "GPL-2.0",
+	"name": "ppm2png",
+	"targetType": "executable"
+}
