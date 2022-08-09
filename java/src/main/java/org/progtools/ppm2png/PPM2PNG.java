@@ -21,14 +21,11 @@ package org.progtools.ppm2png;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.File;
-import java.io.ByteArrayInputStream;
 
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 
 public class PPM2PNG {
     public static void main(String[] args) {
@@ -73,10 +70,11 @@ public class PPM2PNG {
                 System.exit(1);
             }
 
-            int bpp = 0;
+
+            // just validate the bpp value, even though it isn't being used
             line = imageReader.readLine();
             if (line != null) {
-                 bpp = Integer.parseInt(line);
+                 int bpp = Integer.parseInt(line);
                  if (bpp < 0 || bpp > 255) {
                     System.err.printf("Failed to read %s, bad colour size\n", sourceFilename);
                     System.exit(1);
@@ -88,9 +86,9 @@ public class PPM2PNG {
 
             // prepare the data buffer
             final int BPP = 3;
-            int imageSize = width * height * BPP;
-            
-            var imageData = new byte[imageSize];
+            int imageSize = width * height;
+
+            var imageData = new int[imageSize];
 
             int row = 0;
             while ((line = imageReader.readLine()) != null) {
@@ -100,18 +98,19 @@ public class PPM2PNG {
                     System.exit(1);
                 }
 
-                imageData[row] = (byte)Integer.parseInt(values[0]);
-                imageData[row + 1] = (byte)Integer.parseInt(values[1]);
-                imageData[row + 2] = (byte)Integer.parseInt(values[2]);
-                
-                // advance for the next pixel group
-                row += BPP;
+                int r = Integer.parseInt(values[0]);
+                int g = Integer.parseInt(values[1]);
+                int b = Integer.parseInt(values[2]);
+
+                int pixelValue = (r << 16) | (g << 8) | b;
+                imageData[row++] = pixelValue;
             }
 
-             InputStream is = new ByteArrayInputStream(imageData);
-             BufferedImage bi = ImageIO.read(is);  
+             var bufferImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+             bufferImg.setRGB(0, 0, width, height, imageData, 0, width);
+             
              var outputfile = new File(destFilename);
-             ImageIO.write(bi, "png", outputfile);      
+             ImageIO.write(bufferImg, "png", outputfile);
 
         } catch (IOException ex) {
             System.err.printf("Failed to process file %s \n", sourceFilename);
