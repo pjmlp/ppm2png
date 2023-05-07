@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 
     // prepare the data buffer
     constexpr auto BPP = 3;
-    std::size_t imageSize = width * height * BPP;
+    const std::size_t imageSize = static_cast<size_t>(width) * height * BPP;
 
     std::vector<BYTE> imageData(imageSize);
 

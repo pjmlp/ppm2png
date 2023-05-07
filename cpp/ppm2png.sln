@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ppm2png", "ppm2png.vcxproj", "{7A747D4E-C656-4053-8D88-46414525ACB8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ppm2pnglib", "ppm2pnglib\ppm2pnglib.vcxproj", "{74E15268-34ED-4200-8FA5-65A28D8E5073}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ppm2png", "ppm2png\ppm2png.vcxproj", "{7A747D4E-C656-4053-8D88-46414525ACB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF33FEF1-A1F8-4D70-8DB0-DC7348A3B36D}"
+	ProjectSection(SolutionItems) = preProject
+		..\Readme.md = ..\Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +20,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74E15268-34ED-4200-8FA5-65A28D8E5073}.Debug|x64.ActiveCfg = Debug|x64
+		{74E15268-34ED-4200-8FA5-65A28D8E5073}.Debug|x64.Build.0 = Debug|x64
+		{74E15268-34ED-4200-8FA5-65A28D8E5073}.Debug|x86.ActiveCfg = Debug|Win32
+		{74E15268-34ED-4200-8FA5-65A28D8E5073}.Debug|x86.Build.0 = Debug|Win32
+		{74E15268-34ED-4200-8FA5-65A28D8E5073}.Release|x64.ActiveCfg = Release|x64
+		{74E15268-34ED-4200-8FA5-65A28D8E5073}.Release|x64.Build.0 = Release|x64
+		{74E15268-34ED-4200-8FA5-65A28D8E5073}.Release|x86.ActiveCfg = Release|Win32
+		{74E15268-34ED-4200-8FA5-65A28D8E5073}.Release|x86.Build.0 = Release|Win32
 		{7A747D4E-C656-4053-8D88-46414525ACB8}.Debug|x64.ActiveCfg = Debug|x64
 		{7A747D4E-C656-4053-8D88-46414525ACB8}.Debug|x64.Build.0 = Debug|x64
 		{7A747D4E-C656-4053-8D88-46414525ACB8}.Debug|x86.ActiveCfg = Debug|Win32

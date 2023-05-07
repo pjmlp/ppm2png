@@ -15,21 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="image.ixx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="gdiplusinitialize.ixx">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Readme.md" />
     <None Include="sample\Readme.md" />
     <None Include="sample\test.ppm" />
-    <None Include=".gitignore" />
-    <None Include="LICENSE" />
   </ItemGroup>
 </Project>
