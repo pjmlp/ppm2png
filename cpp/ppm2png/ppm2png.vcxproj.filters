@@ -20,7 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="sample\Readme.md" />
     <None Include="sample\test.ppm" />
   </ItemGroup>
 </Project>
