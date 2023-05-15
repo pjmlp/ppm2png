@@ -45,54 +45,13 @@ int main(int argc, char *argv[])
     const std::string sourceFilename = argv[1];
     const std::string destFilename = argv[2];
 
-    std::ifstream fd(sourceFilename);
-    if (!fd) {
-        std::cerr << "Failed to read " << sourceFilename << std::endl;
-        return 1;
-    }
-
-    // validate file header
-    constexpr auto FileHeader = "P3";
-    std::string line;
-    fd >> line;
-    if (line != FileHeader) {
-        std::cerr << "Failed to read " << sourceFilename << ", bad header!\n";
-        return 1;
-    }
-
     int width = 0;
     int height = 0;
-    fd >> width >> height;
-    if (width <= 0 || height <= 0) {
-        std::cerr << "Failed to read " << sourceFilename << ", bad dimensions!\n";
-        return 1;
+
+    auto imageData = ReadPPMImage(sourceFilename, width, height);
+    if (imageData.size() > 0 && width > 0 && height > 0) {
+        CreateImage(destFilename, ImageEncondings::PNG, width, height, imageData.data());
     }
-
-    int bpp = 0;
-    fd >> bpp;
-    if (bpp <= 0 || bpp >= 256) {
-        std::cerr << "Failed to read " << sourceFilename << ", bad color size!\n";
-        return 1;
-    }
-
-    // prepare the data buffer
-    constexpr auto BPP = 3;
-    const std::size_t imageSize = static_cast<size_t>(width) * height * BPP;
-
-    std::vector<BYTE> imageData(imageSize);
-
-    std::size_t row = 0;
-    std::string r, g, b;
-    for (row = 0; row < imageSize && fd; row += BPP) {
-        fd >> r >> g >> b;
-
-        // Windows bitmaps are BGR
-        imageData[row] = static_cast<BYTE> (std::stoi(b));
-        imageData[row + 1] = static_cast<BYTE> (std::stoi(g));
-        imageData[row + 2] = static_cast<BYTE> (std::stoi(r));
-    }
-
-    CreateImage(destFilename, ImageEncondings::PNG, width, height, imageData.data());
 
     std::cout << "Processed " << sourceFilename << " into " << destFilename << std::endl;
     return 0;
