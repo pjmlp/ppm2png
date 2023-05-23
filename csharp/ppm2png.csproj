@@ -5,11 +5,11 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RestoreAdditionalProjectSources>hhttps://www.myget.org/F/sixlabors/api/v3/index.json</RestoreAdditionalProjectSources>
+    <RestoreAdditionalProjectSources>https://www.myget.org/F/sixlabors/api/v3/index.json</RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SixLabors.ImageSharp" Version="3.0.0-alpha.0.63" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.0.0-alpha.0.100" />
   </ItemGroup>
 
   <ItemGroup>
