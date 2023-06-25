@@ -37,6 +37,11 @@ public static class ImageWriter
     public static void SaveImage(string filename, ReadOnlySpan<byte> buffer, int width, int height)
     {
         using var image = Image.LoadPixelData<Rgb24>(buffer, width, height);
-        image.Save(filename);
+        using var stream = new System.IO.FileStream(filename, FileMode.Create);
+        var pngEncoder = new SixLabors.ImageSharp.Formats.Png.PngEncoder() {
+             ColorType = SixLabors.ImageSharp.Formats.Png.PngColorType.Rgb
+        };
+
+        image.SaveAsPng(stream, pngEncoder);
     }
 }
