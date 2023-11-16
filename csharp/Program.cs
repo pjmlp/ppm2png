@@ -20,7 +20,7 @@ using static ppm2png.ImageWriter;
 
 if (args.Length < 2)
 {
-    string filename = System.Diagnostics.Process.GetCurrentProcess().ProcessName;
+    string filename = Path.GetFileName(Environment.ProcessPath!);
     Console.WriteLine($"Missing arguments:\n\n {filename}.exe ppm-filename png-filename\n");
     return 1;
 }
