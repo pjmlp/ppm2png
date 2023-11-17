@@ -17,6 +17,7 @@
  */
 
 using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 
 
@@ -36,10 +37,12 @@ public static class ImageWriter
     /// <param name="height">The image height in pixels.</param>
     public static void SaveImage(string filename, ReadOnlySpan<byte> buffer, int width, int height)
     {
-        using var image = Image.LoadPixelData<Rgb24>(buffer, width, height);
-        using var stream = new System.IO.FileStream(filename, FileMode.Create);
-        var pngEncoder = new SixLabors.ImageSharp.Formats.Png.PngEncoder() {
-             ColorType = SixLabors.ImageSharp.Formats.Png.PngColorType.Rgb
+        // Pass custom Configuration to avoid loading all default formats.
+        using var image = Image.LoadPixelData<Rgb24>(new(), buffer, width, height);
+        using var stream = new FileStream(filename, FileMode.Create);
+        var pngEncoder = new PngEncoder()
+        {
+            ColorType = PngColorType.Rgb
         };
 
         image.SaveAsPng(stream, pngEncoder);

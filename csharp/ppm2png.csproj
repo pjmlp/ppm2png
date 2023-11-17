@@ -5,15 +5,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RestoreAdditionalProjectSources>https://www.myget.org/F/sixlabors/api/v3/index.json</RestoreAdditionalProjectSources>
+    <RestoreAdditionalProjectSources>https://f.feedz.io/sixlabors/sixlabors/nuget/index.json</RestoreAdditionalProjectSources>
+    <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SixLabors.ImageSharp" Version="3.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TrimmableAssembly Include="SixLabors.ImageSharp" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.0.2-alpha.0.38"/>
   </ItemGroup>
 
   <PropertyGroup>
