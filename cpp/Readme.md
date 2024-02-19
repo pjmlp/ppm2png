@@ -5,7 +5,7 @@ Modern C++ version of the conversion utility as a command line application.
 
 # Building
 
-It was developed with Visual Studio 2022 and makes use of C++ 20 modules, this setup works perfectly alright with MSBuild.
+It was developed with Visual Studio 2022 and makes use of C++ 20 modules, and C++23 standard library as module, this setup works perfectly alright with MSBuild.
 
 Maybe when CMake starts supporting modules I can eventually add a build configuration for it.
 

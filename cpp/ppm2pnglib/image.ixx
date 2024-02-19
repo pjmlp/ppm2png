@@ -17,20 +17,15 @@
  */
 module;
 
-// ensures safety checks are turned on even on release mode
-#define _ITERATOR_DEBUG_LEVEL 1
+// ensures safety checks are turned on even on release mode, now on the project settings due to C++23 modules.
+//#define _ITERATOR_DEBUG_LEVEL 1
 
 #include <windows.h>
 #include <gdiplus.h>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <memory>
-#include <span>
-#include <optional>
 
 export module image;
+
+import std;
 
 import gdiplusinitialize;
 

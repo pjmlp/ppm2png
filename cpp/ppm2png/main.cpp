@@ -16,17 +16,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
- // ensures safety checks are turned on even on release mode
-#define _ITERATOR_DEBUG_LEVEL 1
+// ensures safety checks are turned on even on release mode, now on the project settings due to C++23 modules.
+//#define _ITERATOR_DEBUG_LEVEL 1
 
 #include <windows.h>
 
-#include <iostream>
-#include <fstream>
-#include <filesystem>
-#include <vector>
-#include <string>
-#include <span>
+import std;
 
 import image;
 
