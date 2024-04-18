@@ -64,7 +64,7 @@ public class PPM2PNG {
             if (line != null) {
                  String[] values = line.split(" ");
                  width = Integer.parseInt(values[0]);
-                 height = Integer.parseInt(values[0]);
+                 height = Integer.parseInt(values[1]);
             } else {
                 System.err.printf("Failed to read %s, bad dimensions\n", sourceFilename);
                 System.exit(1);
