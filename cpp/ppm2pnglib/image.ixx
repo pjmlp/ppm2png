@@ -17,9 +17,6 @@
  */
 module;
 
-// ensures safety checks are turned on even on release mode, now on the project settings due to C++23 modules.
-//#define _ITERATOR_DEBUG_LEVEL 1
-
 #include <windows.h>
 #include <gdiplus.h>
 
@@ -136,7 +133,7 @@ module :private;
 /// </summary>
 /// <param name="value">The value to convert into a string.</param>
 /// <returns>String representation as wide string value</returns>
-std::wstring to_wstring(ImageEncondings value) {
+static std::wstring to_wstring(ImageEncondings value) {
     return L"image/png";
 }
 
@@ -145,7 +142,7 @@ std::wstring to_wstring(ImageEncondings value) {
 /// </summary>
 /// <param name="format">MIME type for the format, e.g "image/png"</param>
 /// <returns>The CLSID GUID if found, none otherwise</returns>
-std::optional<CLSID> GetEncoderClsid(std::wstring_view format)
+static std::optional<CLSID> GetEncoderClsid(std::wstring_view format)
 {
     UINT  num = 0;          // number of image encoders
     UINT  size = 0;         // size of the image encoder array in bytes
